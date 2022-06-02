@@ -34,13 +34,6 @@ public class CaesarCipherClass {
                 encryptedText = encryptedText + " ";
             } else {
                 encryptLetterIndex = alphabetLetters.indexOf(textForEncodingLetters[i]) - 3;
-                /*if (encryptLetterIndex == -3)
-                    encryptLetterIndex = alphabetLetters.size() - 3;
-                else if (encryptLetterIndex == -2)
-                    encryptLetterIndex = alphabetLetters.size() - 2;
-                else if (encryptLetterIndex == -1)
-                    encryptLetterIndex = alphabetLetters.size() - 1;
-                encryptedText = encryptedText + alphabetLetters.get(encryptLetterIndex);*/
                 if (encryptLetterIndex < 0)
                     encryptLetterIndex += alphabetLetters.size();
                 encryptedText = encryptedText + alphabetLetters.get(encryptLetterIndex);
