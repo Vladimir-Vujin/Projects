@@ -43,6 +43,7 @@ public class CaesarCipherClass {
                 encryptedText = encryptedText + alphabetLetters.get(encryptLetterIndex);*/
                 if (encryptLetterIndex < 0)
                     encryptLetterIndex += alphabetLetters.size();
+                encryptedText = encryptedText + alphabetLetters.get(encryptLetterIndex);
             }
         }
         return encryptedText;
