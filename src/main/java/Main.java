@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
 	
     public static void main(String[] args) {
-    	
+    	printLineDot();
         Scanner scanner = new Scanner(System.in);
         // INPUT TEXT
         System.out.print("Enter some text in capital letters (only letters A-Z): ");
@@ -31,14 +31,26 @@ public class Main {
         // Second check if input key contains only number
         checkInputKey(inputKeyForEncode);
         		
-
+        printLineStar();
         System.out.println("Text to encrypt (formatted text): " + inputTextForEncode);
         System.out.println("Key for encrypt: " + inputKeyForEncode);
 
         CaesarCipherClass cipherTekst = new CaesarCipherClass(inputTextForEncode, inputKeyForEncode);
-        System.out.print("Encrypted text (Caesar Cipher): " + cipherTekst.encodeText());
+        //System.out.print("Encrypted text (Caesar Cipher):      " + cipherTekst.encodeText());
+        System.out.print("Encrypted text (Caesar Cipher):   ");
+        System.err.println(cipherTekst.encodeText());
+        
+        printLineStar();
         
         scanner.close();
+    }
+    
+    public static void printLineDot() {
+    	System.out.println("............................................................................");
+    }
+    
+    public static void printLineStar() {
+    	System.out.println("****************************************************************************");
     }
     
     /**
@@ -47,16 +59,15 @@ public class Main {
      * @param text type String
      */
     public static void checkInputKey(String key) {
-    	String keyP = "";
-    	
         key = key.replaceAll("\\s", "");
         
         if (key.contains("-")) {
-        	keyP = key.substring(1, key.length());
+        	key = key.substring(1, key.length());
         }
-   
-        if (!keyP.matches("[0-9]*")) {
+  
+        if (!key.matches("[0-9]+")) {
             System.err.println("Incorrect input - not allowed characters in key! Try again! Program ends!");
+            printLineDot();
             System.exit(0);
         }
     }
@@ -69,6 +80,7 @@ public class Main {
     public static void checkInputContainsAnyNumbers(String key) {
         if (key.isBlank()) {
             System.err.println("Incorrect input - blank key! Try again! Program ends!");
+            printLineDot();
             System.exit(0);
         }
     }
@@ -109,6 +121,7 @@ public class Main {
         text = text.replaceAll("\\s", "");
         if (!text.matches("^[A-Z]*$")) {
             System.err.println("Incorrect input - not allowed characters in text! Try again! Program ends!");
+            printLineDot();
             System.exit(0);
         }
     }
@@ -121,6 +134,7 @@ public class Main {
     public static void checkInputContainsAnyText(String text) {
         if (text.isBlank()) {
             System.err.println("Incorrect input - blank text! Try again! Program ends!");
+            printLineDot();
             System.exit(0);
         }
     }
